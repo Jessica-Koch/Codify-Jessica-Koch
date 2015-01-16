@@ -1,14 +1,75 @@
-<html>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container">
+  <div class="jumbotron">
+    <!-- <div class="container"> -->
+    <h1>gCamp</h1>
+    <p>Your life, organized.</p>
+  </div>
+</div>
 
-<img src = "http://cdn.newadnetwork.com/sites/prod/files/styles/gallery/public/article/surf-glowing-bioluminescent-maldives-166538.jpg" />
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <p class="lead">
+        <%= image_tag "8969237967_c5960fc544_b.jpg", class: "img-responsive"%>
+      </p>
+      <div class="panel panel-primary">
+        <div class="panel-heading">Tasks</div>
+        <div class="panel-body home-panel">
+          <p>Grouped by projects and lists, just the way you like'em</p>
+        </div>
+      </div>
+    </div>
 
-</html>
+    <div class="col-md-4">
+      <p class="lead">
+        <%= image_tag "8864977481_713b7cbda5_b.jpg", class: "img-responsive"%>
+      </p>
+      <div class="panel panel-primary">
+        <div class="panel-heading">Documents</div>
+        <div class="panel-body home-panel">
+          <ul>
+            <li>Upload</li>
+            <li>Comment</li>
+            <li>Revise</li>
+          </ul>
+          <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+        </div>
+      </div>
+    </div>
 
-<%= image_tag('http://cdn.newadnetwork.com/sites/prod/files/styles/gallery/public/article/surf-glowing-bioluminescent-maldives-166538.jpg') %>
-<!-- <%= image_tag('')%> how to put image in HTML using HTML.erb -->
+    <div class="col-md-4">
+      <p class="lead">
+        <%= image_tag "8203794182_8004f8f636_b.jpg", class: "img-responsive" %>
+      </p>
+      <!--<h2>Comments</h2>-->
+      <div class="panel panel-primary">
+        <div class="panel-heading">Comments</div>
+        <div class="panel-body home-panel">
+          <ul>
+            <li>Comment on tasks and documents</li>
+            <li>Get email notifications</li>
+          </ul>
+          <!--<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>-->
+          <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-
-<% @array.each do |number| %>
- <h1> <%= number %> </h1>
-<% end %>
+  <p>"gCamp has changed my life!  It's the best tool I've ever used."</p>
+  <p class="text-muted">
+    <em>— Cayla Hayes</em>
+  </p>
+  <p>
+    "Before gCamp I was a disorderly slob. Now I'm more oganized than I've ever been"
+  </p>
+  <p class="text-muted">
+    <em>— Leta Joskolski</em>
+  </p>
+  <p>"Don't hesitate - sign up right now! You'll never be the same."</p>
+  <p class="text-muted">
+    <em>— Lavern Upton</em>
+  </p>
+  
