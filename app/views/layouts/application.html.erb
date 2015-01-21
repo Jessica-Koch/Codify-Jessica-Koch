@@ -18,9 +18,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   <title>gCamp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <!--<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags %> -->x
 </head>
 
 <body>
@@ -44,19 +44,20 @@
       </div>
 
       <%= yield %>
-      <hr>
+<hr>
 
       <footer>
         <div class="row">
           <div class="col-md-6">
-          <a href="/about">About</a>
+          <%= link_to "About", about_path %>
           |
-          <a href="/terms">Terms</a>
-          <!-- |
-          <a href="/faq">FAQ</a>
+          <%= link_to "Terms", terms_path %>
+         |
+          <%= link_to "FAQ", faq_path %>
           |
-          <a href="/tasks">Tasks</a>
+          <%= link_to "Tasks", tasks_path %>
         </div>
+      </div>
 
           <div class="col-md-6 text-right">
             <a href="https://www.linkedin.com">
@@ -72,7 +73,7 @@
           <%= image_tag "galvanize-g-b3da24895ed7d4fd33c43d9226c16242.png", class: "img-footer" %>
     </a>
         </div>
-      </div> --> 
+      </footer>
       <!--  <p>&copy; Company 2014</p> -->
     <!--  </footer>
     </div> </container> -->
