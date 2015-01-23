@@ -1,93 +1,106 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gCamp</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
 
-    <title>gCamp</title>
+  <link href="/assets/application-616d304b5c419903c7457e67c834e0c9.css" media="screen" rel="stylesheet">
+  <meta content="authenticity_token" name="csrf-param">
+  <meta content="fmYs7p9D6p3c8T8v1iKUtu9VyB7tvwGzOKNV81eNecQ=" name="csrf-token">
+  <script src="/assets/application-05378627da91e716e4a92271d3d6dd45.js"></script>
 
-    <link href="/assets/application-f250b6a08f34d06932636f6e5b19685c.css" media="screen" rel="stylesheet">
-    <meta content="authenticity_token" name="csrf-param">
-    <meta content="z38SNuyoQdSNeLih5wwVsFsGO7gBDYt1KCpo0a473FM=" name="csrf-token">
-    <script src="/assets/application-9510c10ea3f06013f3c1df6dc855c32d.js"></script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  <title>gCamp</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-<%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %> 
 </head>
 
 <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> -->
-            <!--<span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button> -->
-          <a class="navbar-brand" href="/">gCamp</a>
-        </div>
-        <!-- <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">-->
-            <!--div> -->
-        <!--  </form> -->
-        </div><!--/.navbar-collapse -->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">gCamp</a>
       </div>
+    </div>
+  </div>
 
-      <%= yield %>
+
+
+        <!-- <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right">-->
+        <!--div> -->
+        <!--  </form> -->
+        <!--/.navbar-collapse -->
+<div class="container" >
+
+        <%= yield %>
+
+
 <hr>
 
-      <footer>
-        <div class="row">
-          <div class="col-md-6">
-          <%= link_to "About", about_path %>
-          |
-          <%= link_to "Terms", terms_path %>
-         |
-          <%= link_to "FAQ", faq_path %>
-          |
-          <%= link_to "Tasks", tasks_path %>
-        </div>
+
+
+
+<footer>
+  <div class="row">
+    <div class="col-md-6">
+      <%= link_to "About", about_path %>
+      |
+      <%= link_to "Terms", terms_path %>
+      |
+      <%= link_to "FAQ", faq_path %>
+      |
+      <%= link_to "Tasks", tasks_path %>
+    </div>
+
+    <div class="col-md-6 text-right">
+      <a href="https://www.linkedin.com">
+        <%= image_tag "link.jpg", class: "img-footer" %>
+      </a>
+      <a href="https://github.com/">
+        <%= image_tag "GitHub-de8164cc6a609537cfdab331e002ebb3.png", class: "img-footer" %>
+      </a>
+      <a href="https://twitter.com/">
+        <%= image_tag "Twitter-0c8c529fb7181e05ab5c30416e3a70fa.png", class: "img-footer" %>
+      </a>
+      <a href="https://students.gschool.it/">
+        <%= image_tag "galvanize-g-b3da24895ed7d4fd33c43d9226c16242.png", class: "img-footer" %>
+      </a>
       </div>
+    </div>
+  </footer>
 
-          <div class="col-md-6 text-right">
-            <a href="https://www.linkedin.com">
-              <%= image_tag "link.jpg", class: "img-footer" %>
-    </a>
-            <a href="https://github.com/">
-              <%= image_tag "GitHub-de8164cc6a609537cfdab331e002ebb3.png", class: "img-footer" %>
-    </a>
-            <a href="https://twitter.com/">
-              <%= image_tag "Twitter-0c8c529fb7181e05ab5c30416e3a70fa.png", class: "img-footer" %>
-    </a>
-        <a href="https://students.gschool.it/">
-          <%= image_tag "galvanize-g-b3da24895ed7d4fd33c43d9226c16242.png", class: "img-footer" %>
-    </a>
-        </div>
-      </footer>
-      <!--  <p>&copy; Company 2014</p> -->
-    <!--  </footer>
-    </div> </container> -->
+</div>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script> -->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<!--  <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
-  <!--</body>
-  </html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
 </body>
 </html>

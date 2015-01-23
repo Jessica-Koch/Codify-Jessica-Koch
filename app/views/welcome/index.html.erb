@@ -1,18 +1,14 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="container">
   <div class="jumbotron">
-    <!-- <div class="container"> -->
     <h1>gCamp</h1>
     <p>Your life, organized.</p>
   </div>
-</div>
 
-<div class="container">
-  <!-- Example row of columns -->
   <div class="row">
+
     <div class="col-md-4">
       <p class="lead">
-        <%= image_tag "8969237967_c5960fc544_b.jpg", class: "img-responsive"%>
+        <%= image_tag "8969237967_c5960fc544_b.jpg", class: "img-responsive" %>
       </p>
       <div class="panel panel-primary">
         <div class="panel-heading">Tasks</div>
@@ -43,7 +39,7 @@
       <p class="lead">
         <%= image_tag "8203794182_8004f8f636_b.jpg", class: "img-responsive" %>
       </p>
-      <!--<h2>Comments</h2>-->
+
       <div class="panel panel-primary">
         <div class="panel-heading">Comments</div>
         <div class="panel-body home-panel">
@@ -58,22 +54,6 @@
     </div>
   </div>
 
-<% @quotes.each do |quote| %>
-  <div> <%= quote[0] %> </div>
-  <em><div class="text-muted"> <%= quote[1] %></div></em>
-  </br>
-  <% end %>
-  <!-- <p>"gCamp has changed my life!  It's the best tool I've ever used."</p>
-  <p class="text-muted">
-    <em>— Cayla Hayes</em>
-  </p>
-  <p>
-    "Before gCamp I was a disorderly slob. Now I'm more oganized than I've ever been"
-  </p>
-  <p class="text-muted">
-    <em>— Leta Joskolski</em>
-  </p>
-  <p>"Don't hesitate - sign up right now! You'll never be the same."</p>
-  <p class="text-muted">
-    <em>— Lavern Upton</em>
-  </p> -->
+      <% @quotes.each do |quote| %>
+      <div> <%= quote[0] %> </div>  <p class="text-muted"><em> – <%= quote[1] %></em></p>
+        <% end %>
