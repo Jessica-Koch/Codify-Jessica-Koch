@@ -1,5 +1,27 @@
-  <p>We are dedicated to the makers, the creators, the risk-takers.</p>
+<p id="notice"><%= notice %></p>
 
-  <p>We wake up in the middle of the night and furiously write down ideas about how to make your online life better.</p>
+<h1>Listing Tasks</h1>
 
-  <p>Human collaboration and communication is what drives us, and it infuses every feature of gCamp.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.description %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>
