@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.0'
 
-# Postgres gem 
+# Postgres gem
 gem 'pg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -36,7 +36,6 @@ gem 'haml', '4.0.6'
 # gem 'capistrano-rails', group: :development
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 
 end
