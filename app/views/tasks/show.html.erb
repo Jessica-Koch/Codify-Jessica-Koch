@@ -1,9 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-success" role="alert">
+  <p id="notice"><%= notice %></p>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
+<div class="page-header">
+  <h1>Finish Homework<%= @task.description %></h1>
+  <%= link_to 'Edit', edit_task_path(@task) %>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+</div>
+
+
+
+
+<ol class="breadcrumb">
+  <li><a href="/tasks">Tasks</a></li>
+  <li class="active">Finish Homework</li>
+</ol>
