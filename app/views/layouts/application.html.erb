@@ -10,6 +10,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
+  <%= favicon_link_tag 'Dino.png' %>
   <link href="/assets/application-616d304b5c419903c7457e67c834e0c9.css" media="screen" rel="stylesheet">
   <meta content="authenticity_token" name="csrf-param">
   <meta content="fmYs7p9D6p3c8T8v1iKUtu9VyB7tvwGzOKNV81eNecQ=" name="csrf-token">
@@ -30,7 +31,7 @@
   </div>
 
 <div class="container">
-  
+
   <% if notice %>
   <div class="alert alert-success"><%= notice %>
   </div>
@@ -69,15 +70,6 @@
     </footer>
 
 </div>
-
-
-
-
-
-
-
-
-
 
 
 
