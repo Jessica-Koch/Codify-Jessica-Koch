@@ -4,11 +4,12 @@ class UsersController < ApplicationController
   end
 
   def new
-    @users = User.new
+    @user = User.new
   end
 
   def show
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    #
   end
 
   def edit
@@ -18,12 +19,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    if user.save
-      redirect_to users_path
-    else
-      render :new
+      if @user.save
+        redirect_to users_path, notice: 'User was successfully created!'
+      else
+        render :new
+      end
     end
-  end
+  
+
 
   def update
     @users = User.find(params[:id])
@@ -41,7 +44,7 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-private
+  private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email)
   end
