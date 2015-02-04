@@ -20,7 +20,7 @@
     <% @users.each do |user| %>
     <tr>
       <td><%= user.full_name %></td>
-      <td><%= user.email %></td>
+      <td><%= mail_to user.email %></td>
     </tr>
     <% end %>
 
