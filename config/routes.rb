@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :users
+
   root 'welcome#index'
 
   # Example of regular route:
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get 'terms' => 'terms#index'
   get 'faq' => 'common_questions#index'
   get 'tasks' => 'tasks#index'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

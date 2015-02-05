@@ -49,6 +49,7 @@
   <div class= "actions col-md-offset-2 col-md-4">
     <%= user.submit class: "btn btn-primary" %>
     <%= link_to "Cancel", users_path, class:"btn btn-default" %>
+    <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-danger" %>
   </div>
 </div>
 

@@ -2,7 +2,15 @@
 <div class= 'container'>
   <div class='page-header'>
     <h1>Edit User</h1>
+<div class='text-right'>
   </div>
+</div>
+
+  <ol class="breadcrumb">
+    <li><%= link_to "Users", users_path %></li>
+    <li class="active"><%= link_to @user.full_name, user_path(@user) %></li>
+      <li class="active">Edit <%= @user.full_name %></li>
+    </ol>
 
 
 <%= render 'form' %>
