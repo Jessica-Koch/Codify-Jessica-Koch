@@ -8,8 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    #@user = User.find(params[:id])
-    #
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -25,17 +24,19 @@ class UsersController < ApplicationController
         render :new
       end
     end
-  
+
 
 
   def update
-    @users = User.find(params[:id])
-    if @user.update
-      redirect_to user_path(@user)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to @user, notice:'User was successfully updated!'
     else
       render :edit
     end
   end
+
+
 
   def destroy
     @user = User.find(params[:id])
