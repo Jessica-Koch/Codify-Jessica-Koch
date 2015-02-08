@@ -1,0 +1,15 @@
+<div class= "container">
+  <div class='page-header'>
+    <h1>Edit Project</h1>
+  <div class="text-right">
+    </div>
+  </div>
+
+  <ol class="breadcrumb">
+    <li><%=link_to "Projects", projects_path %></li>
+    <li class='active'><%= link_to @project.name, project_path(@project) %></li>
+    <li class='active'>Edit <%= @project.name %></li>
+  </ol>
+
+  <%= render 'form' %>
+</div>
