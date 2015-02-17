@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    
     if @project.update(project_params)
       redirect_to @project, notice: "Project was successfully updated!"
     else
@@ -32,7 +33,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
   end
-  
+
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
