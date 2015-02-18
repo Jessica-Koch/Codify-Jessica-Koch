@@ -9,92 +9,84 @@ describe 'User can CRUD projects' do
 
     click_on "New Project"
 
-    fill_in 'Project[name]', with: "gCamp"
+    fill_in 'project[name]', with: "gCamp"
 
     click_on "Create Project"
 
-    expect(page).to have_content("Jess")
+    expect(page).to have_content("gCamp")
     expect(page).to have_content("Project was successfully created")
   end
 
-  scenario 'Project can visit a show page for a Project' do
+  scenario 'User can visit a show page for a Project' do
 
-    visit '/users'
+    visit '/projects'
 
-    click_on "New User"
+    click_on "New Project"
 
-    fill_in 'user[first_name]', with: "Jess"
-    fill_in 'user[last_name]', with: "Koch"
-    fill_in 'user[email]', with: "jessicakoch136@gmail.com"
+    fill_in 'project[name]', with: "story"
 
-    click_on "Create User"
+    click_on "Create Project"
 
-    visit '/users'
-    expect(page).to have_content("Jess")
+    visit '/projects'
 
-    click_link('Jess')
-    expect(page).to have_content("Jess")
+    expect(page).to have_content("story")
+
+    click_on "story"
+
+    expect(page).to have_content("story")
 
   end
   scenario 'User cannot leave field blank' do
 
-    visit '/users'
+    visit '/projects'
 
-    click_on "New User"
+    click_on "New Project"
 
-    fill_in 'user[first_name]', with: "Jess"
-    fill_in 'user[last_name]', with: "Koch"
-    fill_in 'user[email]', with: ""
+    fill_in 'project[name]', with: ""
 
-    click_on "Create User"
+    click_on "Create Project"
 
     expect(page).to have_content("error prohibited this object from being saved")
   end
 
 
-  scenario 'User can edit a User' do
+  scenario 'User can edit a Project' do
 
-    visit '/users'
+    visit '/projects'
 
-    click_on "New User"
+    click_on "New Project"
 
-    fill_in 'user[first_name]', with: "Jess"
-    fill_in 'user[last_name]', with: "Koch"
-    fill_in 'user[email]', with: "jessicakoch136@gmail.com"
+    fill_in 'project[name]', with: "gCamp"
 
-    click_on "Create User"
+    click_on "Create Project"
 
-    expect(page).to have_content("Jess")
+    expect(page).to have_content("gCamp")
 
     click_on "Edit"
 
-    fill_in('user[first_name]', :with => 'Jessica')
-    click_on "Update User"
+    fill_in 'project[name]', with: "puppy"
+    click_on "Update Project"
 
-    expect(page).to have_content("Jessica")
+    expect(page).to have_content("puppy")
 
 
   end
 
-  scenario 'User can Delete a User' do
+  scenario 'User can delete a Project' do
 
-    visit '/users'
+    visit '/projects'
 
-    click_on "New User"
+    click_on "New Project"
 
-    fill_in 'user[first_name]', with: "Jess"
-    fill_in 'user[last_name]', with: "Koch"
-    fill_in 'user[email]', with: "jessicakoch136@gmail.com"
+    fill_in 'project[name]', with: "stories"
 
-    click_on "Create User"
+    click_on "Create Project"
 
-    expect(page).to have_content("Jess")
-
-    click_on "Edit"
+    expect(page).to have_content("stories")
 
     click_on "Delete"
 
-    expect(page).to have_no_content("Jessica")
+    expect(page).to have_no_content("stories")
   end
 
 end
