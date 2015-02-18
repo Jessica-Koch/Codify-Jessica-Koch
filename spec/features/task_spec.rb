@@ -14,6 +14,7 @@ describe 'User can CRUD tasks' do
 
     click_on "Create Task"
     expect(page).to have_content("test")
+
     expect(page).to have_content("Task was successfully created")
   end
 
@@ -36,7 +37,7 @@ describe 'User can CRUD tasks' do
     expect(page).to have_content("test")
   end
 
-  scenario 'User can edit an event' do
+  scenario 'User can edit a task' do
     visit '/tasks'
 
     click_on "New Task"
@@ -65,7 +66,7 @@ scenario "User can delete a task" do
 
   expect(page).to have_content("test")
 
-  visit '/tasks'aa
+  visit '/tasks'
 
   click_on('Delete')
 
