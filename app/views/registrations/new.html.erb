@@ -1,0 +1,37 @@
+<div class="row">
+  <div class ="col-md-6 col-md-offset-3">
+    <div class="well">
+      <h2>Sign Up</h2>
+
+      <%= form_for @user, url: signup_path do |user| %>
+      <%= render 'shared/error', model: user.object %>
+
+      <div class = "form-group">
+        <%= user.label :first_name %>
+        <%= user.text_field :first_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= user.label :last_name %>
+        <%= user.text_field :last_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= user.label :email %>
+        <%= user.email_field :email, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= user.label :password %>
+        <%= user.password_field :password, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= user.label :password_confirmation %>
+        <%= user.password_field :password_confirmation, class: "form-control" %>
+      </div>
+
+      <div class ="form-group">
+        <%= user.submit 'Register!', class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

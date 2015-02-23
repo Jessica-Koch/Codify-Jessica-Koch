@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,28 +14,32 @@
   <meta content="authenticity_token" name="csrf-param">
   <meta content="fmYs7p9D6p3c8T8v1iKUtu9VyB7tvwGzOKNV81eNecQ=" name="csrf-token">
   <script src="/assets/application-05378627da91e716e4a92271d3d6dd45.js"></script>
-
-
 </head>
 <body>
-
-
-
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand" href="/">gCamp</a>
       </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sign Up", signup_path %></li>
+        <li><%=link_to @current_user, @user_path %></li>
+          <% if current_user %>
+        <li><%= link_to 'Logout', logout_path %></li>
+        <% else %>
+        <li><%= link_to 'Login', login_path %></li>
+        <% end %>
+
+      </ul>
     </div>
   </div>
 
-<div class="container">
-
-  <% if notice %>
-  <div class="alert alert-success"><%= notice %>
-  </div>
-  <% end %>
-
+  <div class="container">
+    <% if notice %>
+    <div class="alert alert-success">
+      <%= notice %>
+    </div>
+    <% end %>
     <%= yield %>
     <hr>
 
@@ -73,10 +76,7 @@
       </div>
     </footer>
 
-</div>
-
-
-
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="../../dist/js/bootstrap.min.js"></script>
