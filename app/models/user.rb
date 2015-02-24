@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_secure_password
+
 
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true
@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
 
     "#{first_name} #{last_name}"
   end
-
+has_secure_password
 end

@@ -4,7 +4,8 @@
       <h2>Sign Up</h2>
 
       <%= form_for @user, url: signup_path do |user| %>
-      <%= render 'shared/error', model: user.object %>
+      <%= render partial: 'shared/error', locals:{object: @user} %>
+
 
       <div class = "form-group">
         <%= user.label :first_name %>
@@ -31,7 +32,8 @@
       <div class ="form-group">
         <%= user.submit 'Register!', class: "btn btn-primary" %>
       </div>
-      <% end %>
+
     </div>
   </div>
 </div>
+<% end %>

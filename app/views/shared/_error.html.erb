@@ -1,13 +1,15 @@
 
-<% if model.errors.any? %>
-<div id="error_explanation">
-  <div class = "alert alert-danger"><h4><%= pluralize(model.errors.count, "error") %> prohibited this object from being saved:</h4>
-
-  <ul>
-    <% model.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-</div>
+<% if object.errors.any? %>
+  <div class="form-group">
+    <div class="col-sm-10 col-sm-offset-2">
+      <div class="alert alert-danger">
+        <strong><%= pluralize(object.errors.count, "error") %> prohibited this object from being saved:</strong>
+        <ul>
+          <% object.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 <% end %>

@@ -21,9 +21,10 @@ If anyone is trying to figure out how to get the sign-in form to look like your 
 
 
 
-<li><%=link_to @current_user, @user_path %></li>
-  <% if current_user %>
-<li><%= link_to 'Logout', logout_path %></li>
-<% else %>
-<li><%= link_to 'Login', login_path %></li>
-<% end %>
+
+from application_controller :
+def authenticate
+  if not current_user
+    redirect_to login_path, notice: "You are not signed in."
+  end
+end
