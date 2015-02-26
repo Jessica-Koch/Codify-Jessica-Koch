@@ -4,7 +4,7 @@
       <h2>Sign Up</h2>
 
       <%= form_for @user, url: signup_path do |user| %>
-      <%= render partial: 'shared/errors', locals: {model: @user} %>
+      <%= render partial: 'shared/errors', locals: {object: @user} %>
 
 
       <div class = "form-group">
