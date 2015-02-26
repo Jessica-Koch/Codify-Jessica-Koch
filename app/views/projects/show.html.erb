@@ -11,3 +11,5 @@
   <li><a href='/projects'>Projects</a></li>
   <li class= 'active'><%= @project.name %></li>
 </ol>
+
+<h4> <%= link_to project.tasks.count, project_tasks_path(@project) %> </h4>
