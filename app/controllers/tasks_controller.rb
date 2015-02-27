@@ -4,7 +4,6 @@ class TasksController < ApplicationController
 
   def index
     @project = Project.find(params[:project_id])
-    @tasks = Task.all
   end
 
   def show
@@ -13,13 +12,14 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
     @project = Project.find(params[:project_id])
+    @task = Task.new
   end
 
   def create
     @project = Project.find(params[:project_id])
     @task = Task.new(task_params)
+    @task.project_id = @project.id
 
     if @task.save
       redirect_to project_tasks_path(@project), notice: "Task was successfully created!"
@@ -30,12 +30,12 @@ class TasksController < ApplicationController
 
   def edit
     @project = Project.find(params[:project_id])
-    @task = @project.tasks.find(params[:id])
+    @task.project_id = params[:project_id]
   end
 
   def update
     @project = Project.find(params[:project_id])
-    @task = @project.tasks.find(params[:id])
+    @task.project_id = params[:project_id]
 
     if @task.update(task_params)
       redirect_to project_path(@task.project_id), notice: "Task was successfully updated!"
