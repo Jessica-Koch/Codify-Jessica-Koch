@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :authenticate
 
   def index
@@ -7,7 +8,7 @@ class TasksController < ApplicationController
   end
 
   def show
-      @project = Product.find(params[:project_id])
+      @project = Project.find(params[:project_id])
       @task = @project.tasks.find(params[:id])
   end
 
@@ -17,11 +18,11 @@ class TasksController < ApplicationController
   end
 
   def create
+    @project = Project.find(params[:project_id])
     @task = Task.new(task_params)
-    @task.project_id = params[:project_id]
 
     if @task.save
-      redirect_to projects_path, notice: "Task was successfully created!"
+      redirect_to project_tasks_path(@project), notice: "Task was successfully created!"
     else
       render :new
     end
@@ -44,15 +45,16 @@ class TasksController < ApplicationController
 end
 
   def destroy
-    @task = Task.find(params[:id])
     @project = Project.find(params[:project_id])
-
+    @task.project_id = params[:project_id]
     @task.destroy
-    redirect_to project_tasks_path(@project), notice: "Your task was deleted!"
-    end
-
+      redirect_to project_tasks_path(@project), notice: "One less thing to do!"
+  end
 
   private
+    def set_task
+      @task = Task.find(params[:id])
+    end
 
     def task_params
       params.require(:task).permit(:description, :duedate, :completed, :project_id)
