@@ -3,6 +3,17 @@ require 'rails_helper'
 
 describe 'User can CRUD projects' do
 
+  before :each do
+    User.create(first_name: "User", last_name: "Random", email: "example@test.com", password: "a", password_confirmation: "a")
+
+    visit '/'
+    click_on 'Sign In'
+    fill_in 'email', :with =>"example@test.com"
+    fill_in 'password', :with => "a"
+
+    click_button "Sign In"
+  end
+
   scenario 'User can create a Project and see show page' do
 
     visit '/projects'

@@ -21,15 +21,3 @@ class CommonQuestionsController < ApplicationController
     @common_questions = [q1, q2, q3]
   end
 end
-
-
-
-
-
-# Create a CommonQuestion class that has
-# a question attribute
-# an answer attribute
-# a slug attribute
-# (if the question is "How much does it cost" the slug would be "how-much-does-it-cost")
-# Create a CommonQuestions controller and a route to its index action with the path '/faq'. In the controller, create an array of CommonQuestion objects and assign it to an instance variable.
-# In the view, iterate over the array of FAQ objects to generate the page.
