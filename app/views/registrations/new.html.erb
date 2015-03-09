@@ -3,37 +3,24 @@
     <div class="well">
       <h2>Sign Up</h2>
 
-      <%= form_for @user, url: signup_path do |user| %>
+
+
+      <%= simple_form_for @user do |f|  %>
       <%= render partial: 'shared/errors', locals: {object: @user} %>
 
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
 
-      <div class = "form-group">
-        <%= user.label :first_name %>
-        <%= user.text_field :first_name, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= user.label :last_name %>
-        <%= user.text_field :last_name, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= user.label :email %>
-        <%= user.email_field :email, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= user.label :password %>
-        <%= user.password_field :password, class: "form-control" %>
-      </div>
+      <%= f.button :submit %>
+      <% end %>
 
-      <div class="form-group">
-        <%= user.label :password_confirmation %>
-        <%= user.password_field :password_confirmation, class: "form-control" %>
-      </div>
 
-      <div class ="form-group">
-        <%= user.submit 'Register!', class: "btn btn-primary" %>
-      </div>
 
-    </div>
-  </div>
-</div>
-<% end %>
+
+
+          </div>
+        </div>
+      </div>
