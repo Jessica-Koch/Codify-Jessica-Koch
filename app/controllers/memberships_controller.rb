@@ -1,22 +1,41 @@
 class MembershipsController < ApplicationController
-  before_action :authenticate
-
   def index
     @project = Project.find(params[:project_id])
-  end
-
-  def new
+    @memberships = @project.memberships.all
+    @membership = Membership.new
   end
 
   def create
+    @project = Project.find(params[:project_id])
+    @membership = Membership.new(membership_params)
+    @membership.project_id = @project.id
+    if @membership.save
+      redirect_to project_memberships_path(@project), notice:"#{@membership.user.full_name} was successfully added."
+    else
+      render :index
+    end
   end
 
-  def edit
-  end
 
   def update
-  end
-
-  def destroy
+    @project = Project.find(params[:project_id])
+    @membership = Membership.find(params[:id])
+    if @membership.update(membership_params)
+      redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully updated."
   end
 end
+
+  def destroy
+    @project = Project.find(params[:project_id])
+    @membership.project_id = params[:project_id]
+    @membership.destroy
+      redirect_to project_memberships_path(@project), notice: "One member down"
+  end
+
+
+
+    private
+    def membership_params
+      params.require(:membership).permit(:role, :user_id, :project_id)
+    end
+  end

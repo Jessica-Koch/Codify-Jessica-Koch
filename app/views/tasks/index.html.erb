@@ -4,12 +4,12 @@
     <%= link_to 'New Task', new_project_task_path(@project), class:"btn btn-info" %>
   </div>
 
-<h1> <%= "#{"Tasks for "}#{@project.name}" %></h1>
+<h1> <%= "Tasks for #{@project.name}" %></h1>
 </div>
 
 <ol class="breadcrumb">
   <li><a href="/projects">Projects</a></li>
-  <li><%= link_to @project.name %></li>
+  <li><%= link_to @project.name, project_path(@project) %></li>
   <li class="active">Tasks for <%= @project.name %></li>
 </ol>
 
