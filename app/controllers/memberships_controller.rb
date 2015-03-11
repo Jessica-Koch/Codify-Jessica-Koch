@@ -12,6 +12,7 @@ class MembershipsController < ApplicationController
     if @membership.save
       redirect_to project_memberships_path(@project), notice:"#{@membership.user.full_name} was successfully added."
     else
+      flash.now[:alert] = @membership.errors.full_messages
       render :index
     end
   end

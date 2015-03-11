@@ -8,18 +8,11 @@
   <li class= "active">Memberships</li>
 </ol>
 
-<div class="well form-inline">
-
-  <%= form_for [@project, @membership], html: {class: "form-horizontal"} do |f| %>
-  <%= f.collection_select :user_id, User.all, :id, :full_name, {include_blank: "Please select user"}, {class:"form-control"} %>
-  <%= f.select(:role, [["Member", :member],["Owner", :owner]], {include_blank: false}, {class:"form-control"}) %>
-  <%= f.submit 'Add New Member', class:"btn btn-info" %>
-<% end %>
-</div>
+<%= render 'form' %>
 
 
 <% @project.memberships.each do |membership| %>
-<%= form_for [@project, membership], html: {class: "form-horizontal"} do |f| %>
+<%= form_for([@project, membership], html: {class: "form-horizontal"}) do |f| %>
 <div class="form-inline">
   <%= membership.user.full_name %>
   <%= f.select(:role, [["Member", :member],["Owner", :owner]], {include_blank: false}, {class:"form-control"}) %>
@@ -27,7 +20,8 @@
   <%= link_to project_membership_path(@project, membership), method: :delete, data: {confirm: 'Are you sure?'} do %>
   <span class ="glyphicon glyphicon-remove"></span>
   <% end %>
-  <% end %>
 
   <% end %>
 </div>
+
+<% end %>
