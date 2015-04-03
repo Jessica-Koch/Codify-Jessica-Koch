@@ -1,10 +1,9 @@
 <div class='page-header'>
   <div class='pull-right'>
     <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-info"%>
-    <%= link_to "Delete", @project, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
-    </div>
+  </div>
 
-    <h1><%= @project.name %></h1>
+  <h1><%= @project.name %></h1>
 </div>
 
 <ol class="breadcrumb">
@@ -14,3 +13,11 @@
 
 <h4> <%= link_to "#{@project.tasks.count} #{"Tasks"}", project_tasks_path(@project) %> </h4>
 <h4><%= link_to "#{@project.memberships.count} #{"Members"}", project_memberships_path(@project) %></h4>
+
+<div class="well">
+  <p><strong>Delete Project</strong></p>
+  <p>
+    <%= "Deleting this project will also delete #{pluralize(@project.memberships.count, "membership")}, #{pluralize(@project.tasks.count, "task")} and associated comments." %>
+  </p>
+  <%= link_to "Delete", @project, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
+</div>
