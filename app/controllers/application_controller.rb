@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
     helper_method :current_user
     helper_method :admin
-
+    helper_method :admin_authenticate
 
   def authenticate
     unless current_user
@@ -23,11 +23,4 @@ class ApplicationController < ActionController::Base
     redirect_to user_path(@user) unless admin
   end
 
-
-
-#     def correct_user
-#       @user = User.find(params[:id])
-#       @user == current_user
-#     end
-#
 end

@@ -1,4 +1,4 @@
-class CommonQuestionsController < ApplicationController
+class CommonQuestionsController < MarketingController
 
   def index
 
