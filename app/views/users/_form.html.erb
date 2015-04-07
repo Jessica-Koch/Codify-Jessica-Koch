@@ -24,6 +24,21 @@
       <%= user.password_field :password, class: "form-control" %>
     </div>
 
+    <div class="form-group">
+      <%= user.label :password_confirmation %>
+      <%= user.password_field :password_confirmation, class: "form-control" %>
+    </div>
+
+    <% if admin %>
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">Admin
+        </label>
+      </div>
+    </div>
+    <% end %>
+
     <div class ="form-group">
       <%= user.submit class: "btn btn-primary" %>
       <%= link_to "Cancel", @user, class:"btn btn-default" %>

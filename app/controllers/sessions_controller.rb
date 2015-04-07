@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def new
     @user = User.new
   end
-  
+
 def create
   user = User.find_by_email(params[:email])
 
@@ -19,5 +19,5 @@ end
   def destroy
     session.clear
     redirect_to root_path, notice: "We're sorry to see you go!"
-  end
+  endt
 end

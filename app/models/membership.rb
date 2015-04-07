@@ -7,5 +7,9 @@ class Membership < ActiveRecord::Base
 
   validates :role, presence: :true
 
-  enum role: [:member, :owner]
+  enum role: [:owner, :member]
+
+  def owner?
+    self.role == "owner"
+  end
 end

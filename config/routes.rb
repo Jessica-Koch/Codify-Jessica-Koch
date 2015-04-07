@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :projects do
-    resources :tasks
+    resources :tasks, :comments
     resources :memberships
   end
 
