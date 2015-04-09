@@ -7,16 +7,15 @@ describe 'User can CRUD projects' do
     User.create(first_name: "User", last_name: "Random", email: "example@test.com", password: "a", password_confirmation: "a")
 
     visit '/'
-    click_on 'Sign In'
+    click_on "Sign In"
     fill_in 'email', :with =>"example@test.com"
     fill_in 'password', :with => "a"
 
-    click_button "Sign In"
   end
 
   scenario 'User can create a Project and see show page' do
 
-    visit '/projects'
+    visit projects_path
 
     click_on "New Project"
 
@@ -25,6 +24,8 @@ describe 'User can CRUD projects' do
     click_on "Create Project"
 
     expect(page).to have_content("gCamp")
+    expect(page).to have_content("Tasks")
+    expect(page).to have_content("Members")
     expect(page).to have_content("Project was successfully created")
   end
 
