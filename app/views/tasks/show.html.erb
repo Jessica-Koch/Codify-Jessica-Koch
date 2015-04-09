@@ -4,7 +4,7 @@
   <div class="pull-right">
     <%= link_to 'Edit', edit_project_task_path(@project, @task), class: "btn btn-info" %>
   </div>
-    <h1><%= @task.description %></h1>
+  <h1><%= @task.description %></h1>
 </div>
 
 <ol class="breadcrumb">
@@ -13,3 +13,22 @@
 </ol>
 
 <div><strong> Due On: </strong><%= @task.duedate %></div>
+
+<h3>Comments</h3>
+<% @task.comments.each do |comment| %>
+
+  <div class="row comment">
+    <div class="col-md-3">
+      <%= link_to "#{comment.user.full_name}", user_path(comment.user) %>
+      <div class="text-muted">
+        <%= time_ago_in_words(comment.created_at) %>
+      </div>
+  </div>
+  <div class="row col-md-9">
+    <%= comment.body %>
+  </div>
+</div>
+  <% end %>
+
+
+<%= render 'comment' %>
