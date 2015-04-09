@@ -10,7 +10,7 @@
 <ol class="breadcrumb">
   <li><a href="/projects">Projects</a></li>
   <li><%= link_to @project.name, project_path(@project) %></li>
-  <li class="active">Tasks for <%= @project.name %></li>
+  <li class="active">Tasks</li>
 </ol>
 
 <table class="table table-striped">
@@ -32,12 +32,14 @@
         <td>
         <div class='text-right'>
             <%= link_to 'Edit', edit_project_task_path(@project, task), class:"btn btn-info" %>
-            <%= link_to 'Delete', project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
-          </div>
+            <%= link_to project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
+
+        </div>
+
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
