@@ -45,7 +45,7 @@
 
 
       <% if @user.id != nil %>
-      <%= link_to "Delete", logout_path, data:{confirm: "Are you sure?"}, class:"btn btn-danger" %>
+      <%= link_to "Delete", @user, method: :delete, data:{confirm: "Are you sure?"}, class:"btn btn-danger" %>
       <% end %>
     </div>
   </div>

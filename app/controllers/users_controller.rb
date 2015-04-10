@@ -21,10 +21,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by_id(params[:id])
-    unless current_user == @user || admin?
+    unless current_user == @user || admin
       render :file => 'public/404.html', :status => :not_found, :layout => false
     else
-
+      render :edit
     end
   end
 
@@ -53,8 +53,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password, :admin)
   end
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
 
 end
