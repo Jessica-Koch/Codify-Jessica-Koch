@@ -20,7 +20,11 @@
     <% @users.each do |user| %>
     <tr>
         <td><%= link_to user.full_name, user %></td>
+      <% if current_user == user || admin? %>
         <td><%= mail_to user.email %></td>
+      <% else %>
+        <td></td>
+      <% end %>
       <td>
         <div class = "text-right">
           <% if user == current_user || admin? %>
