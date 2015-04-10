@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     unless current_user
+      session[:previous_path] = request.fullpath
       redirect_to login_path, notice: "You are not signed in."
     end
   end
