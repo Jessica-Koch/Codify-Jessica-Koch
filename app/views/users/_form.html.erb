@@ -29,7 +29,7 @@
       <%= user.password_field :password_confirmation, class: "form-control" %>
     </div>
 
-    <% if admin %>
+    <% if admin? %>
     <div class="form-group">
       <div class="checkbox">
         <label>
@@ -45,7 +45,7 @@
 
 
       <% if @user.id != nil %>
-      <%= link_to "Delete", @user, method: :delete, data:{confirm: "Are you sure?"}, class:"btn btn-danger" %>
+      <%= link_to "Delete", logout_path, data:{confirm: "Are you sure?"}, class:"btn btn-danger" %>
       <% end %>
     </div>
   </div>

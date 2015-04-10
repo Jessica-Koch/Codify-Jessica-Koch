@@ -23,7 +23,9 @@
         <td><%= mail_to user.email %></td>
       <td>
         <div class = "text-right">
-          <%= link_to 'Edit', edit_user_path(user), class: "btn btn-info" %>
+          <% if user == current_user || admin? %>
+            <%= link_to 'Edit', edit_user_path(user), class: "btn btn-info" %>
+          <% end %>
           </div>
       </td>
     </tr>

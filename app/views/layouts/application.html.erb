@@ -25,7 +25,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
 
-              <% if admin %>
+              <% if admin? %>
                 <% Project.all.each do |project| %>
                   <li><%= link_to project.name, project_path(project) %></li>
                 <% end %>
@@ -64,7 +64,7 @@
 
     <footer>
       <div class="row">
-        <div class="col-md-6">
+        <div class="text-center">
           <%= link_to "About", about_path %>
           |
           <%= link_to "Terms", terms_path %>
@@ -76,20 +76,7 @@
           <%= link_to "Projects", projects_path %>
         </div>
 
-        <div class="col-md-6 text-right">
-          <a href="https://www.linkedin.com">
-            <%= image_tag "link.jpg", class: "img-footer" %>
-          </a>
-          <a href="https://github.com/">
-            <%= image_tag "GitHub-de8164cc6a609537cfdab331e002ebb3.png", class: "img-footer" %>
-          </a>
-          <a href="https://twitter.com/">
-            <%= image_tag "Twitter-0c8c529fb7181e05ab5c30416e3a70fa.png", class: "img-footer" %>
-          </a>
-          <a href="https://students.gschool.it/">
-            <%= image_tag "galvanize-g-b3da24895ed7d4fd33c43d9226c16242.png", class: "img-footer" %>
-          </a>
-        </div>
+
       </div>
     </footer>
 

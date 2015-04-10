@@ -9,7 +9,6 @@ class Membership < ActiveRecord::Base
 
   enum role: [:owner, :member]
 
-  def owner?
-    self.role == "owner"
-  end
+
+
 end
