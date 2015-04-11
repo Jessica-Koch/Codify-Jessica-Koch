@@ -1,4 +1,5 @@
 class MembershipsController < ApplicationController
+
   def index
     @project = Project.find(params[:project_id])
     @memberships = @project.memberships.all
@@ -37,6 +38,7 @@ end
 
     private
     def membership_params
-      params.require(:membership).permit(:role, :user_id, :project_id)
+      params.require(:membership).permit(:role, :user_id)
     end
+
   end

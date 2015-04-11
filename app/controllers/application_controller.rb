@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
     current_user.admin if current_user
   end
 
+
   def admin_authenticate
     redirect_to user_path(@user) unless admin
   end

@@ -3,7 +3,7 @@
 </div>
 
 <ol class = "breadcrumb">
-  <li> <a href="/projects">Projects</a></li>
+  <li><a href="/projects">Projects</a></li>
   <li><%= link_to @project.name, project_path(@project) %></li>
   <li class= "active">Memberships</li>
 </ol>
@@ -24,7 +24,7 @@
   </div>
 
   <%= f.submit 'Update', class:"btn btn-primary" %>
-    <% unless membership.user == current_user || admin? %>
+    <% unless membership.user != current_user || admin? %>
       <%= link_to project_membership_path(@project, membership), method: :delete, data: {confirm: 'Are you sure?'} do %>
       <span class ="glyphicon glyphicon-remove"></span>
       <% end %>

@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+
   end
 
   def new
@@ -25,8 +26,9 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    
+
     if @project.save
+      @project.memberships.create(user: current_user, role: 'owner')
       redirect_to project_tasks_path(@project), notice:"Project was successfully created!"
     else
       render :new
