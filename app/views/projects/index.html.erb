@@ -22,7 +22,7 @@
     <td> <%= link_to pluralize(project.tasks.count, 'task'), project_tasks_path(project) %></td>
     <td>
       <div class = "text-right">
-        <% if project.users.include?(current_user) && current_user.memberships.find_by(project_id: project).owner? %>
+        <% if project.users.include?(current_user) && current_user.memberships.find_by(project_id: project).owner? || admin? %>
           <%= link_to 'Edit', edit_project_path(project), class:"btn btn-info" %>
         <% end %>
       </div>

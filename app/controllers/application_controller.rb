@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
     helper_method :authenticate
     helper_method :correct_user
     helper_method :admin?
-    helper_method :owner?
     helper_method :admin_authenticate
     helper_method :logged_in
     helper_method :not_found
