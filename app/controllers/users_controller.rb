@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_by_id(params[:id])
     unless current_user == @user || admin?
-      render :file => 'public/404.html', :status => :not_found, :layout => false
+      # render :file => 'public/404.html', :status => :not_found, :layout => false
     else
       render :edit
     end

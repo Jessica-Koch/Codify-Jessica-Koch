@@ -41,4 +41,4 @@ end
       params.require(:membership).permit(:role, :user_id)
     end
 
-  end
+end

@@ -24,10 +24,12 @@
   </div>
 
   <%= f.submit 'Update', class:"btn btn-primary" %>
-    <% unless membership.user != current_user || admin? %>
+    <% if membership.user == current_user || admin? %>
       <%= link_to project_membership_path(@project, membership), method: :delete, data: {confirm: 'Are you sure?'} do %>
       <span class ="glyphicon glyphicon-remove"></span>
+        <% end %>
+      <% elsif @project.memberships(user: current_user, role: 'owner') == 1 %>
+        <%= You are the last owner %>
       <% end %>
-  <% end %>
   <% end %>
   <% end %>

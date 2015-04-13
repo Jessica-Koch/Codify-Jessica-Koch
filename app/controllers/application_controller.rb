@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     helper_method :authenticate
     helper_method :correct_user
     helper_method :admin?
+    helper_method :owner?
     helper_method :admin_authenticate
     helper_method :logged_in
     helper_method :not_found
@@ -25,6 +26,9 @@ class ApplicationController < ActionController::Base
     current_user.admin if current_user
   end
 
+  # def owner?
+  #   true if current_user.memberships.find_by(role: 'owner')
+  # end
 
   def admin_authenticate
     redirect_to user_path(@user) unless admin
@@ -37,7 +41,7 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    render :file => 'public/404.html', :status => :not_found, :layout => false
+    # render :file => 'public/404.html', :status => :not_found, :layout => false
   end
 
 
