@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     helper_method :authenticate
     helper_method :correct_user
     helper_method :admin?
+    helper_method :owner?
     helper_method :admin_authenticate
     helper_method :logged_in
     helper_method :not_found
@@ -25,9 +26,9 @@ class ApplicationController < ActionController::Base
     current_user.admin == true
   end
 
-  # def owner?
-  #   true if current_user.memberships.find_by(role: 'owner')
-  # end
+  def owner?
+    true if current_user.memberships.find_by(role: 'owner')
+  end
 
   def admin_authenticate
     redirect_to user_path(@user) unless admin

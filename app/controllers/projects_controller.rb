@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate
   before_action :owners_only, only: [:edit, :update, :delete]
-  before_filter :members_only, only: [:show, :edit, :update, :delete]
+  before_filter :members_only, only: [:edit, :update, :delete]
 
   def index
     @projects = Project.all

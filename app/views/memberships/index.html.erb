@@ -8,7 +8,10 @@
   <li class= "active">Memberships</li>
 </ol>
 
-<%= render 'form' %>
+  <% if owner? || admin? %>
+    <%= render 'form' %>
+  <% end %>
+
 <hr>
 
 <div class="form-inline">
