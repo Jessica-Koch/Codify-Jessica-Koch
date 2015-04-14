@@ -15,20 +15,21 @@
     </tr>
   </thead>
 
-<tbody>
-  <% @projects.each do |project| %>
-  <tr>
-    <td><%= link_to project.name, project %></td>
-    <td> <%= link_to pluralize(project.tasks.count, 'task'), project_tasks_path(project) %></td>
-    <td>
-      <div class = "text-right">
-        <% if project.users.include?(current_user) && current_user.memberships.find_by(project_id: project).owner? || admin? %>
+  <tbody>
+    <% @projects.each do |project| %>
+    <% if current_user.memberships.find_by(project_id: project) || admin? %>
+    <tr>
+      <td><%= link_to project.name, project %></td>
+      <td> <%= link_to pluralize(project.tasks.count, 'task'), project_tasks_path(project) %></td>
+      <td>
+        <div class = "text-right">
+          <% if project.users.include?(current_user) && current_user.memberships.find_by(project_id: project).owner? || admin? %>
           <%= link_to 'Edit', edit_project_path(project), class:"btn btn-info" %>
-        <% end %>
-      </div>
-    </td>
-  </tr>
-  <% end %>
-
+          <% end %>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+    <% end %>
   </tbody>
 </table>
