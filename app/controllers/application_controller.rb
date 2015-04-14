@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def owner?
-    true if current_user.memberships.find_by(role: 'owner')
+    @project.users.include?(current_user) && current_user.memberships.find_by(project_id: @project).owner?
   end
 
   def admin_authenticate

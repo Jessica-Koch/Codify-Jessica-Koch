@@ -1,4 +1,5 @@
 class MembershipsController < ApplicationController
+  before_action :owners_only, only: [:edit, :update, :delete]
 
   def index
     @project = Project.find(params[:project_id])
@@ -41,4 +42,9 @@ end
       params.require(:membership).permit(:role, :user_id)
     end
 
+    def owners_only
+      unless @project.user.include?(current_user) && current_user.memberships.find_by(project_id: @project).owner?
+        redirect_to @project, notice: 'You do not have access'
+      end
+    end
 end
