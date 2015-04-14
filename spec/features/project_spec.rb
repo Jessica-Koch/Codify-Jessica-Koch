@@ -15,35 +15,25 @@ describe 'User can CRUD projects' do
 
   scenario 'User can create a Project and see show page' do
 
-    visit projects_path
+    click_on "Project"
+    Project.create(name: "gCamp Stories")
 
-    click_on "New Project"
-
-    fill_in 'project[name]', with: "gCamp"
-
-    click_on "Create Project"
-
-    expect(page).to have_content("gCamp")
-    expect(page).to have_content("Tasks")
-    expect(page).to have_content("Members")
+    click_on "Project"
+    expect(page).to have_content("gCamp Stories")
     expect(page).to have_content("Project was successfully created")
+    click_on "gCamp Stories"
+
   end
 
   scenario 'User can visit a show page for a Project' do
 
+    click_on "Project"
+    Project.create(name: "Stories")
     visit '/projects'
 
-    click_on "New Project"
+    expect(page).to have_content("Stories")
 
-    fill_in 'project[name]', with: "story"
-
-    click_on "Create Project"
-
-    visit '/projects'
-
-    expect(page).to have_content("story")
-
-    click_on "story"
+    click_on "Stories"
 
     expect(page).to have_content("story")
 
