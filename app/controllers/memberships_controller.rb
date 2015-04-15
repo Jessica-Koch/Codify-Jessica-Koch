@@ -14,11 +14,9 @@ class MembershipsController < ApplicationController
     if @membership.save
       redirect_to project_memberships_path(@project), notice:"#{@membership.user.full_name} was successfully added."
     else
-      flash.now[:alert] = @membership.errors.full_messages
       render :index
     end
   end
-
 
   def update
     @project = Project.find(params[:project_id])
@@ -36,15 +34,21 @@ end
   end
 
 
-
     private
     def membership_params
       params.require(:membership).permit(:role, :user_id)
     end
 
-    def owners_only
-      unless @project.user.include?(current_user) && current_user.memberships.find_by(project_id: @project).owner?
-        redirect_to @project, notice: 'You do not have access'
+    def members_only
+      unless @project.user.include?(current_user) && current_user.memberships.find_by(project_id: @project) || admin?
+        redirect_to projects_path, alert: 'You do not have access to that project'
       end
     end
+
+    def owners_only
+      unless @project.user.include?(current_user) && current_user.memberships.find_by(project_id: @project).owner? || admin?
+        redirect_to @project, alert: 'You do not have access'
+      end
+    end
+
 end

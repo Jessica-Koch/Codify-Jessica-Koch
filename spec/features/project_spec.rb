@@ -15,7 +15,9 @@ describe 'User can CRUD projects' do
 
   scenario 'User can create a Project and see show page' do
 
-    click_on "Project"
+    within ".pull-right" do
+      click_on "New Project"
+    end
     Project.create(name: "gCamp Stories")
 
     click_on "Project"

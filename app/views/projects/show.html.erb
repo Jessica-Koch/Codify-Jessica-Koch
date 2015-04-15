@@ -14,12 +14,12 @@
 <h4> <%= link_to "#{pluralize(@project.tasks.count, "Task")}", project_tasks_path(@project) %> </h4>
 <h4><%= link_to "#{pluralize(@project.memberships.count, "Membership")}", project_memberships_path(@project) %></h4>
 
-<% if @project.users.include?(current_user) && current_user.memberships.find_by(project_id: @project).owner? || admin? %>
+<% if owner? || admin? %>
 <div class="well">
   <p><strong>Delete Project</strong></p>
   <p>
     <%= "Deleting this project will also delete #{pluralize(@project.memberships.count, "membership")}, #{pluralize(@project.tasks.count, "task")} and associated comments." %>
   </p>
-  <%= link_to "Delete", @project, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
+    <%= link_to "Delete", @project, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
 </div>
 <% end %>

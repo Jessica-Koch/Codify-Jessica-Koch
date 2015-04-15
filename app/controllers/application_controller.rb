@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_authenticate
-    redirect_to user_path(@user) unless admin
+    redirect_to user_path(@user) unless admin?
   end
 
   def logged_in
