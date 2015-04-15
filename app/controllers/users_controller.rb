@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate
+  before_action :member_email, only: [:index, :show]
 
   def index
     @users = User.all
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     unless current_user == @user || admin?
-      # render :file => 'public/404.html', :status => :not_found, :layout => false
+      render :file => 'public/404.html', :status => :not_found, :layout => false
     else
       render :edit
     end
@@ -53,5 +54,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password, :admin)
   end
 
+  def member_email
+    @member_email = current_user.projects.map{|project| project.users}.flatten
+  end
 
 end

@@ -1,7 +1,7 @@
 class MembershipsController < ApplicationController
   before_action :set_project
   before_action :members_only
-  before_action :owners_only, only: [:edit, :update, :delete]
+  before_action :owners_only, only: [:edit, :update, :destroy]
 
   def index
     @memberships = @project.memberships.all

@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def self.co_member
+    @project.memberships.include?(@users && current_user)
+  end
   # def owner?(project)
   #   project.memberships.find_by(role: Membership.roles[:owner], user_id: id)
   # end

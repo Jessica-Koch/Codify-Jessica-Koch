@@ -20,7 +20,7 @@
     <% @users.each do |user| %>
     <tr>
         <td><%= link_to user.full_name, user %></td>
-      <% if current_user == user || admin? %>
+      <% if user == current_user || admin? || @member_email.include?(user) %>
         <td><%= mail_to user.email %></td>
       <% else %>
         <td></td>

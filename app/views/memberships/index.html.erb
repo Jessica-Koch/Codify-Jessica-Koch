@@ -10,11 +10,11 @@
 
 <%= render partial:'shared/errors', locals: {object: @membership} %>
 
-<% if owner? || admin? %>
+<% if project_owner? || admin? %>
   <%= render 'form' %>
 <% end %>
 
-<% if owner? || admin? %>
+<% if project_owner? || admin? %>
   <% @project.memberships.each do |membership| %>
   <div class="form-inline">
     <%= form_for [@project, membership] do |f| %>

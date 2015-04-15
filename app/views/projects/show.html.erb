@@ -14,7 +14,7 @@
 <h4> <%= link_to "#{pluralize(@project.tasks.count, "Task")}", project_tasks_path(@project) %> </h4>
 <h4><%= link_to "#{pluralize(@project.memberships.count, "Membership")}", project_memberships_path(@project) %></h4>
 
-<% if owner? || admin? %>
+<% if project_owner? || admin? %>
 <div class="well">
   <p><strong>Delete Project</strong></p>
   <p>

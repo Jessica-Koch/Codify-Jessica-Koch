@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     helper_method :authenticate
     helper_method :correct_user
     helper_method :admin?
-    helper_method :owner?
+    helper_method :project_owner?
     helper_method :admin_authenticate
     helper_method :logged_in
     helper_method :not_found
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     current_user.admin == true
   end
 
-  def owner?
+  def project_owner?
     @project.users.include?(current_user) && current_user.memberships.find_by(project_id: @project).owner?
   end
 
