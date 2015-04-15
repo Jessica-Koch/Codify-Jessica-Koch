@@ -1,11 +1,14 @@
 class ProjectsController < ApplicationController
   before_action :authenticate
+  before_filter :members_only, only: [:show, :edit, :update, :delete]
   before_action :owners_only, only: [:edit, :update, :delete]
-  before_filter :members_only, only: [:edit, :update, :delete]
 
   def index
-    @projects = Project.all
-
+    if admin?
+      @projects = Project.all
+    else
+      @projects = current_user.projects
+    end
   end
 
   def new
@@ -55,13 +58,13 @@ class ProjectsController < ApplicationController
 
   def owners_only
     unless @project.users.include?(current_user) && current_user.memberships.find_by(project_id: @project).owner? || admin?
-      redirect_to projects_path, notice: 'You do not have access'
+      redirect_to projects_path, alert: 'You do not have access'
     end
   end
 
   def members_only
     unless current_user.memberships.find_by(project_id: @project) || admin?
-     redirect_to projects_path, notice: "You do not have access to that project"
+     redirect_to projects_path, alert: "You do not have access to that project"
     end
   end
 end
