@@ -10,23 +10,16 @@ describe 'User can CRUD tasks' do
     fill_in 'email', :with =>"example@test.com"
     fill_in 'password', :with => "a"
     click_button "Sign In"
-    visit '/projects'
-    click_on "New Project"
-    fill_in 'project[name]', with: "gCamp"
-    click_on "Create Project"
-    expect(page).to have_content("gCamp")
-    expect(page).to have_content("Project was successfully created")
-    click_link 'Tasks'
+    click_on "clicker"
+    fill_in 'Name', with: 'Spiffy Project'
+    click_button "Create Project"
   end
 
   scenario 'User can create a Task and see showpage' do
-
     click_on "New Task"
-
-    fill_in "task[description]", :with => "test"
-
-    click_on "Create Task"
-    expect(page).to have_content("test")
+    fill_in "task[description]", :with => "practice"
+    click_button "Create Task"
+    expect(page).to have_content("practice")
 
     expect(page).to have_content("Task was successfully created")
   end
