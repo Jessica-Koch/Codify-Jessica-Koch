@@ -41,16 +41,10 @@ feature 'user CRUD projects' do
 
   end
   scenario 'User cannot leave field blank' do
-
-    visit '/projects'
-
-    click_on "New Project"
-
-    fill_in 'project[name]', with: ""
-
-    click_on "Create Project"
-
-    expect(page).to have_content("error prohibited this object from being saved")
+    click_on "clicker"
+    fill_in 'Name', with: ""
+    click_button "Create Project"
+    expect(page).to have_content("1 error prohibited this form from being saved:")
   end
 
 
