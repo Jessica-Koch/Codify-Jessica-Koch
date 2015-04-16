@@ -3,7 +3,7 @@ require 'rails_helper'
 
 describe 'User can CRUD users and Sessions work' do
 
-  scenario 'User can create a User and see show page' do
+  scenario 'User can register and see a show page' do
     visit '/'
     click_on "Sign Up"
     fill_in 'user[first_name]', with: "Jessica"
@@ -11,7 +11,7 @@ describe 'User can CRUD users and Sessions work' do
     fill_in 'user[email]', with: "jessicakoch136@icloud.com"
     fill_in 'user[password]', with: "a"
     fill_in 'user[password_confirmation]', with: "a"
-    click_on "Register!"
+    click_on "Create User"
     expect(page).to have_content("Jessica")
     click_on  'Jessica'
     expect(page).to have_content("Jessica")
