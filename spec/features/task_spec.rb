@@ -20,21 +20,18 @@ describe 'User can CRUD tasks' do
     fill_in "task[description]", :with => "practice"
     click_button "Create Task"
     expect(page).to have_content("practice")
-
     expect(page).to have_content("Task was successfully created")
   end
 
   scenario 'User can visit a show page for a task' do
 
     click_on "New Task"
-    fill_in "task[description]", :with => "test"
+    fill_in "task[description]", :with => "assignment 1"
     click_on "Create Task"
-    expect(page).to have_content("test")
+    expect(page).to have_content("assignment 1")
     expect(page).to have_content("Task was successfully created")
-
-    click_on "Show"
-
-    expect(page).to have_content("test")
+    click_link "assignment 1"
+    expect(page).to have_content("assignment 1")
   end
 
   scenario 'User can edit a task' do
