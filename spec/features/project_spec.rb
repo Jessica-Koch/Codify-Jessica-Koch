@@ -55,27 +55,17 @@ feature 'user CRUD projects' do
     click_on "Edit"
     fill_in 'project[name]', with: "Homework"
     click_on "Update Project"
-
     expect(page).to have_content("Homework")
-
-
   end
 
   scenario 'User can delete a Project' do
-
-    visit '/projects'
-
-    click_on "New Project"
-
-    fill_in 'project[name]', with: "stories"
-
-    click_on "Create Project"
-
-    expect(page).to have_content("stories")
-
+    click_on "clicker"
+    fill_in 'Name', with: 'Spiffiest Project'
+    click_button "Create Project"
+    expect(page).to have_content("Spiffiest Project")
+    click_link("Spiffiest Project", :match => :first)
     click_on "Delete"
-
-    expect(page).to have_no_content("stories")
+    expect(page).to have_no_content("Spiffiest Project")
   end
 
 end
