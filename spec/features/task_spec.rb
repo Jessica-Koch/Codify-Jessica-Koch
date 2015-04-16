@@ -35,15 +35,12 @@ describe 'User can CRUD tasks' do
   end
 
   scenario 'User can edit a task' do
-
     click_on "New Task"
     fill_in "task[description]", :with => "test"
     click_on "Create Task"
     expect(page).to have_content("test")
     expect(page).to have_content("Task was successfully created")
-
     click_on "Edit"
-
     fill_in "task[description]", :with => "test14"
     click_on "Update Task"
     click_on "Task"
@@ -57,8 +54,7 @@ scenario "User can delete a task" do
   expect(page).to have_content("test")
   expect(page).to have_content("Task was successfully created")
 
-  click_on "Delete"
-
+  click_on "xed"
   end
 
 end
