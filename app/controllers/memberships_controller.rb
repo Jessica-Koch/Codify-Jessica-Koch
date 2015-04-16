@@ -22,9 +22,16 @@ class MembershipsController < ApplicationController
   def update
     @membership = Membership.find(params[:id])
     if @membership.update(membership_params)
+      @memberships = @project.memberships
+
+      if @membership.update(role: 0) && @owners_count == 1
+        redirect_to project_memberships_path(@project), alert: "Projects much have at least one owner"
+      else
+        @owners_count == 1
+        @membership.update(membership_params)
+
       redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully updated."
-    else
-      render :edit
+    end
   end
 end
 
@@ -41,7 +48,7 @@ end
     end
 
     def members_only
-      unless @project.users.include?(current_user) || admin?
+      unless @project.memberships.include?(current_user) || admin?
         redirect_to projects_path, alert: 'You do not have access to that project'
       end
     end
