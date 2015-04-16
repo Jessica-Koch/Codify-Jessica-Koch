@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
 
   def current_user
     User.find_by_id(session[:user_id])
-    # @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def authenticate
@@ -24,13 +23,10 @@ class ApplicationController < ActionController::Base
     current_user.admin == true
   end
 
+
   def project_owner?
     @project.users.include?(current_user) && current_user.memberships.find_by(project_id: @project).owner?
   end
-
-  # def admin_authenticate
-  #   redirect_to user_path(@user) unless admin?
-  # end
 
   def logged_in
     unless logged_in?

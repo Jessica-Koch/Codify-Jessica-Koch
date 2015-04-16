@@ -54,7 +54,8 @@ class ProjectsController < ApplicationController
   private
 
   def members_only
-    unless @projects = current_user.projects || admin?
+    project = Project.find(params[:id])
+    unless project.users.include?(current_user) || admin?
      redirect_to projects_path, alert: "You do not have access to that project"
     end
   end
