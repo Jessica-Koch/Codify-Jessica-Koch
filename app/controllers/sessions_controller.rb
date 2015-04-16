@@ -11,12 +11,13 @@ def create
     session[:user_id] = user.id
     if session[:previous_path]
       redirect_to session[:previous_path]
-    elsif
+    else
       redirect_to projects_path, notice: 'Welcome back, stranger!'
+    end
   else
     @sign_in_error = "Username / password combination is invalid"
     render :new
-    end
+    
   end
 end
 

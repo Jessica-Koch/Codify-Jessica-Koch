@@ -56,7 +56,7 @@ describe 'User can CRUD users and Sessions work' do
      fill_in 'user[email]', with: "jessicakoch136@icloud.com"
      fill_in 'user[password]', with: "a"
      fill_in 'user[password_confirmation]', with: "a"
-     click_on "Register!"
+     click_on "Create User"
      expect(page).to have_content("Jessica")
      click_on "Jessica"
      click_on "Edit"
