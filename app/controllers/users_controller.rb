@@ -49,7 +49,6 @@ class UsersController < ApplicationController
   end
 
   private
-
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :admin)
   end
@@ -57,5 +56,7 @@ class UsersController < ApplicationController
   def member_email
     @member_email = current_user.projects.map{|project| project.users}.flatten
   end
+
+
 
 end

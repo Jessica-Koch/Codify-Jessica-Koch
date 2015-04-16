@@ -10,17 +10,16 @@ describe 'User can CRUD projects' do
     click_on "Sign In"
     fill_in 'email', :with =>"example@test.com"
     fill_in 'password', :with => "a"
+    click_button 'Sign In'
 
   end
 
   scenario 'User can create a Project and see show page' do
 
-    within ".pull-right" do
-      click_on "New Project"
-    end
+    click_on "clicker"
     Project.create(name: "gCamp Stories")
 
-    click_on "Project"
+    click_on "Create Project"
     expect(page).to have_content("gCamp Stories")
     expect(page).to have_content("Project was successfully created")
     click_on "gCamp Stories"

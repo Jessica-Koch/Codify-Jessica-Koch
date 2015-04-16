@@ -2,6 +2,7 @@ class MembershipsController < ApplicationController
   before_action :set_project
   before_action :members_only
   before_action :owners_only, only: [:edit, :update, :destroy]
+  before_action :last_owner, only: [:index]
 
   def index
     @memberships = @project.memberships.all
@@ -49,6 +50,11 @@ end
       unless @project.user.include?(current_user) && current_user.memberships.find_by(project_id: @project).owner? || admin?
         redirect_to @project, alert: 'You do not have access'
       end
+    end
+
+    def last_owner
+      @project = Project.find(params[:project_id])
+      @owners_count =  @project.memberships.where(role: 0).count
     end
 
     def membership_params
