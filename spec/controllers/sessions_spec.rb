@@ -6,7 +6,7 @@ RSpec.describe SessionsController, type: :controller do
     it "user can sign in" do
       user = User.create(first_name: "Pikachu", last_name: "Pokemon", email: "example@test.com", password: "a", password_confirmation: "a")
       post :create, { email: user.email, password: user.password}
-          response.should redirect_to projects_path
+          expect(response).to  redirect_to projects_path
       end
     end
   end
