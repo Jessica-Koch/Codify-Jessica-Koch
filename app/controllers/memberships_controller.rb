@@ -54,7 +54,8 @@ end
     end
 
     def owners_only
-      unless @project.user.include?(current_user) && current_user.memberships.find_by(project_id: @project).owner? || admin?
+      project = Project.find(params[:project_id])
+      unless project.users.include?(current_user) && current_user.memberships.find_by(project_id: @project).owner? || admin?
         redirect_to @project, alert: 'You do not have access'
       end
     end
