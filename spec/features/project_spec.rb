@@ -34,9 +34,7 @@ feature 'user CRUD projects' do
     click_button "Create Project"
     expect(page).to have_content("Tasks for Spiffy Project2")
     expect(page).to have_content("Project was successfully created!")
-
     click_link("Spiffy Project2", :match => :first)
-
     expect(page).to have_content("Spiffy Project2")
 
   end
@@ -49,23 +47,17 @@ feature 'user CRUD projects' do
 
 
   scenario 'User can edit a Project' do
+    click_on "clicker"
+    fill_in 'Name', with: 'Spiffiest Project'
+    click_button "Create Project"
+    expect(page).to have_content("Spiffiest Project")
+    click_link("Spiffiest Project", :match => :first)
+    click_button "Edit"
 
-    visit '/projects'
-
-    click_on "New Project"
-
-    fill_in 'project[name]', with: "gCamp"
-
-    click_on "Create Project"
-
-    expect(page).to have_content("gCamp")
-
-    click_on "Edit"
-
-    fill_in 'project[name]', with: "puppy"
+    fill_in 'project[name]', with: "Homework"
     click_on "Update Project"
 
-    expect(page).to have_content("puppy")
+    expect(page).to have_content("Homework")
 
 
   end
