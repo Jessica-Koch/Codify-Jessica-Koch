@@ -1,4 +1,3 @@
-User.find_by(:email => "admin@example.com").destroy
 user = User.create!(
   :first_name => "Admin",
   :last_name => "Administrator",
