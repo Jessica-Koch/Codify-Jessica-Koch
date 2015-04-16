@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-
-describe 'User can CRUD projects' do
+feature 'user CRUD projects' do
 
   before :each do
     User.create(first_name: "User", last_name: "Random", email: "example@test.com", password: "a", password_confirmation: "a")
@@ -17,26 +16,28 @@ describe 'User can CRUD projects' do
   scenario 'User can create a Project and see show page' do
 
     click_on "clicker"
-    Project.create(name: "gCamp Stories")
-
-    click_on "Create Project"
-    expect(page).to have_content("gCamp Stories")
-    expect(page).to have_content("Project was successfully created")
-    click_on "gCamp Stories"
+    fill_in 'Name', with: 'Spiffy Project'
+    click_button "Create Project"
+    expect(page).to have_content("Tasks for Spiffy Project")
+    expect(page).to have_content("Project was successfully created!")
+    click_link("Spiffy Project", :match => :first)
+    expect(page).to have_content("Tasks")
+    expect(page).to have_content("1 Membership")
+    expect(page).to have_content("Delete Project")
 
   end
 
   scenario 'User can visit a show page for a Project' do
 
-    click_on "Project"
-    Project.create(name: "Stories")
-    visit '/projects'
+    click_on "clicker"
+    fill_in 'Name', with: 'Spiffy Project2'
+    click_button "Create Project"
+    expect(page).to have_content("Tasks for Spiffy Project2")
+    expect(page).to have_content("Project was successfully created!")
 
-    expect(page).to have_content("Stories")
+    click_link("Spiffy Project2", :match => :first)
 
-    click_on "Stories"
-
-    expect(page).to have_content("story")
+    expect(page).to have_content("Spiffy Project2")
 
   end
   scenario 'User cannot leave field blank' do
