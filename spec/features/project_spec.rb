@@ -52,8 +52,7 @@ feature 'user CRUD projects' do
     click_button "Create Project"
     expect(page).to have_content("Spiffiest Project")
     click_link("Spiffiest Project", :match => :first)
-    click_button "Edit"
-
+    click_on "Edit"
     fill_in 'project[name]', with: "Homework"
     click_on "Update Project"
 
