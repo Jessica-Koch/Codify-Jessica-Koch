@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to project_task_path(@project, @task)
     else
-      :back
+      redirect_to project_task_path(@project, @task)
     end
   end
 
