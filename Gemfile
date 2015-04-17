@@ -46,8 +46,9 @@ group :production do
 end
 
 group :development, :test do
-  gem "factory_girl_rails", "~> 4.0"
   gem 'rspec-rails'
+  gem "factory_girl_rails", "~> 4.0"
+
   gem 'capybara'
   gem "spring-commands-rspec"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
