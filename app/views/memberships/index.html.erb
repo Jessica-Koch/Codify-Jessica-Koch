@@ -12,10 +12,6 @@
 
 <% if project_owner? || admin? %>
   <%= render 'form' %>
-<% end %>
-
-
-<% if project_owner? || admin? %>
 
 <div class="form-inline">
   <% @project.memberships.each do |membership| %>
@@ -27,11 +23,11 @@
     <%= f.select(:role, [["Owner", :owner],["Member", :member]], {include_blank: false}, {class:"form-control"}) %>
   </div>
     <%= f.submit 'Update', class:"btn btn-primary" %>
-    <% if membership.owner? && current_user.last_owner?(@project) %>
-        <%= "You are the last owner." %>
+    <% if current_user.last_owner?(@project) %>
+        <%= "You are the last owner" %>
         <% end %>
 
-      <% if (current_user == membership.user || admin?) && current_user.last_owner?(@project) %>
+      <% if admin? || !current_user.last_owner?(@project) %>
       <%= link_to '<span class ="glyphicon glyphicon-remove" aria-hidden="true"></span>'.html_safe,
         project_membership_path(@project, membership), method: :delete, data: {confirm: 'Are you sure?'}  %>
       <% end %>
@@ -57,5 +53,6 @@
     <br>
 
   <% end %>
-  <% end %>
 </div>
+
+  <% end %>

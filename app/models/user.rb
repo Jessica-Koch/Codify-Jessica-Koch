@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  before_save :titleize_fname
-  before_save :titleize_lname
+   before_save :titleize_fname
+   before_save :titleize_lname
 
-  before_create :titleize_fname
-  before_create :titleize_lname
+  # before_create :titleize_fname
+  # before_create :titleize_lname
 
   has_many :memberships, dependent: :destroy
   has_many :projects, through: :memberships
@@ -20,11 +20,11 @@ class User < ActiveRecord::Base
 
 
   def titleize_fname
-    self.first_name = self.first_name.titleize
+    write_attribute(:first_name, first_name.titleize)
   end
 
   def titleize_lname
-    self.last_name = self.last_name.titleize
+    write_attribute(:last_name, last_name.titleize)
   end
 
   def full_name

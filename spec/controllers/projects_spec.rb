@@ -10,4 +10,6 @@ RSpec.describe ProjectsController, type: :controller do
       expect(response).to redirect_to login_path
     end
   end
+
+  
 end

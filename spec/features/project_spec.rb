@@ -68,4 +68,12 @@ feature 'user CRUD projects' do
     expect(page).to have_no_content("Spiffiest Project")
   end
 
+  scenario 'User directed to tasks index page upon project creation' do
+    click_on "clicker"
+    fill_in 'Name', with: 'Spiffy Project'
+    click_button "Create Project"
+    expect(page).to have_content("Tasks for Spiffy Project")
+    expect(page).to have_content("Project was successfully created!")
+    expect(page).to have_content("Tasks for Spiffy Project")
+  end
 end

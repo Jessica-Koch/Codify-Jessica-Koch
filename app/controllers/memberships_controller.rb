@@ -23,10 +23,10 @@ class MembershipsController < ApplicationController
     if @membership.update(membership_params)
       @memberships = @project.memberships
 
-      if @membership.update(role: 0) && @owners_count == 1
-        redirect_to project_memberships_path(@project), alert: "Projects much have at least one owner"
+      if @membership.update(role: 'owner') && current_user.last_owner?(@project)
+        redirect_to project_memberships_path(@project), alert: "Projects must have at least one owner"
       else
-        @owners_count == 1
+        # @owners_count == 1
         @membership.update(membership_params)
 
       redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully updated."
