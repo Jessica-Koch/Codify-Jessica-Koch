@@ -47,4 +47,13 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
+  describe "GET #update" do
+    render_views
+      it "can edit a project" do
+        @membership = Membership.create(user_id: @user.id, project_id: @project.id, role: "owner")
+        get :edit, id: @project.id
+        expect(response).to render_template(:edit)
+      end
+    end
+
 end
