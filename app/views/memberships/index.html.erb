@@ -23,7 +23,7 @@
     <%= f.select(:role, [["Owner", :owner],["Member", :member]], {include_blank: false}, {class:"form-control"}) %>
   </div>
     <%= f.submit 'Update', class:"btn btn-primary" %>
-    <% if current_user.last_owner?(@project) %>
+    <% if current_user.last_owner?(@project) && membership.user == current_user %>
         <%= "You are the last owner" %>
         <% end %>
 
