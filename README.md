@@ -14,4 +14,4 @@ bundle
 
 rake db:create rake db:migrate rake db:seed
 
-[![Build Status](https://travis-ci.org/Jessica-Koch/gCamp-Jessica-Koch.svg?branch=master)](https://travis-ci.org/Jessica-Koch/gCamp-Jessica-Koch)
+https://travis-ci.org/Jessica-Koch/gCamp-Jessica-Koch.svg?branch=master
