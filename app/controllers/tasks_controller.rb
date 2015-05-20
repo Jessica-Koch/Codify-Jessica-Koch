@@ -39,7 +39,7 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
     @task.project_id = params[:project_id]
 
-    if @task.update(task_params)
+    if @task.update(task_params
       redirect_to project_path(@task.project_id), notice: "Task was successfully updated!"
     else
       render :edit
