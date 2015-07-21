@@ -1,25 +1,53 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
+html{
+  body {
+    background-image: url('darkskyline.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+  }
 
-body {
-  background-image: url('darkskyline.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-.center{
-  color: #fff
-}
-.img-footer {
- max-width: 2em;
- max-height: 2em;
- margin-right: .5em;
-}
+  .navbar a{  
+    font: {
+      weight: bold;
+    }
+    &:link{
+      color: #fff;
+    }
+    &:hover{
+      text-shadow: 0 0 30px rgba( 0, 150, 254, .7 ), 0 0 50px rgba( 0, 150, 254, 1 );
+      border-color: hsl(180, 100%, 50%);
+      color: hsl(180, 100%, 50%);
+      transition          : text-shadow 0.3s;
+      -webkit-transition  : text-shadow 0.3s;
+      -moz-transition     : text-shadow 0.3s;
+      -o-transition       : text-shadow 0.3s;
+    }
 
-a {
+    &:active{
+      text-shadow: 0 0 30px rgba( 0, 150, 254, .7 ), 0 0 50px rgba( 0, 150, 254, 1 );
+    }
+    transition: all 0.4s ease;
+  }
+  .navbar {background: rgba(black, 0.2);
+  }
+
+  .row {
+   position:fixed;
+   bottom:20px;
+   width:100%;
+   text-align: center;
+   margin:auto;
+   float: none;
+ }
+ footer a{
   color: #fff;
   font: {
     weight: bold;
@@ -28,22 +56,19 @@ a {
     color: #fff;
   }
   &:hover{
-    color: #fff;
-    text-shadow         : 0px 0px 0px transparent;
-    transition          : text-shadow 0.3s;
-    -webkit-transition  : text-shadow 0.3s;
-    -moz-transition     : text-shadow 0.3s;
-    -o-transition       : text-shadow 0.3s;
-    text-shadow        : 1px 0px 20px #ff0000;
+    border-radius: 50%;
+    border-color: hsl(180, 100%, 50%);
+    color: hsl(180, 100%, 50%);
+    text-shadow: 0 0 30px rgba( 0, 150, 254, .7 ), 0 0 50px rgba( 0, 150, 254, 1 );
+    box-shadow: 0 0 10px 5px hsla(180, 100%, 50%, 0.5),
+    inset 0 0 10px 5px hsla(180, 100%, 50%, 0.5);
     text-decoration: none;
-
   }
   &:active{
-    text-shadow        : 1px 0px 20px #fff;
     color: #fff;
   }
 }
-
-footer {
-  padding-bottom: 2em;
+a{
+  transition: all 0.4s ease;
+}
 }
