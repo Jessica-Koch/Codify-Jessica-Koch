@@ -80,10 +80,10 @@ footer {
 /* Cover / Jumbotron Styles
 ===================================*/
 section.cover{
-  padding-top: 70px;
   background-image: url('darkskyline.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 50px;
 }
 .flex-wrapper {
   display: flex;
