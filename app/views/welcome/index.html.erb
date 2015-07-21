@@ -1,56 +1,93 @@
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="center">
-  <h1>RedUp</h1>
-  <p>Your life, organized.</p>
-</div>
-
-<!-- <div class="row">
-
-  <div class="col-md-4">
-    <p class="lead">
-      <%= image_tag "8969237967_c5960fc544_b.jpg", class: "img-responsive" %>
-    </p>
-    <div class="panel panel-primary">
-      <div class="panel-heading">Tasks</div>
-      <div class="panel-body home-panel">
-        <p>Grouped by projects and lists, just the way you like'em</p>
+  <!-- Full Screen Landing Section -->
+  <section class="cover" id="spytop"> 
+    <div class="cover-inner">
+      <div class="flex-wrapper">
+        <div class="jumbotron">
+          <h1 class="animated fadeInDownBig">(In Development)</h1>
+          <p class="animated fadeInRightBig">This example showing how you can use Flexbox in areas or a Bootstrap Download to enhance your layout!</p>
+          <p class="animated fadeInLeftBig"><em>This is and will always be a working progress so be sure to check back for updates!</em></p>
+          <p>
+            <a class="btn btn-lg jumbotron-btn animated fadeInUpBig" role="button">Call Out Button &raquo;</a>
+          </p>
+        </div>
       </div>
     </div>
-  </div> -->
-<!-- 
-  <div class="col-md-4">
-    <p class="lead">
-      <%= image_tag "8864977481_713b7cbda5_b.jpg", class: "img-responsive"%>
-    </p>
-    <div class="panel panel-primary">
-      <div class="panel-heading">Documents</div>
-      <div class="panel-body home-panel">
-        <ul>
-          <li>Upload</li>
-          <li>Comment</li>
-          <li>Revise</li>
-        </ul>
+  </section>
+  <!-- //Close Full Screen Landing Section -->
+
+
+  <!-- Section One; as seen on many site 3 main option sections for content -->
+  <section class="container-fluid section-one">
+    <div class="row">
+      <div class="col-md-4 section-one-content" id="section-one-left">
+        <h1>What</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+        </p>
+        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+        </p>
       </div>
-    </div>
-  </div>
 
-  <div class="col-md-4">
-    <p class="lead">
-      <%= image_tag "8203794182_8004f8f636_b.jpg", class: "img-responsive" %>
-    </p>
-
-    <div class="panel panel-primary">
-      <div class="panel-heading">Comments</div>
-      <div class="panel-body home-panel">
-        <ul>
-          <li>Comment on tasks and documents</li>
-          <li>Get email notifications</li>
-        </ul>
+      <div class="col-md-4 section-one-content" id="section-one-middle">
+        <h1>Why</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+        </p>
+        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+        </p>
       </div>
-    </div>
-  </div>
-</div> -->
 
-<% @quotes.each do |quote| %>
-<div> <%= quote[0] %> </div>  <p class="text-muted"><em> – <%= quote[1] %></em></p>
-<% end %>
+      <div class="col-md-4 section-one-content" id="section-one-right">
+        <h1>How</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+        </p>
+        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+        </p>
+      </div>  
+    </div>
+  </section>
+  <!-- //Close Section One -->  
+
+
+  <!-- Section Two; a style feature I really like is 2 cols, 1 for text and 1 for a related image -->
+  <section class="container section-two" id="spydesingers">
+    <div class="row">
+      <div class="col-md-6 to-match">
+        <h2>Designers</h2>
+        <article>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+          </p>
+          <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+          </p>
+          <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
+          </p>
+        </article>
+      </div>
+      <div class="col-md-6 css-img-wrapper hidden-xs hidden-sm">
+        <img class="img-responsive img-circle img-designers">
+      </div>
+    </section>
+    <!--//Close Section Two -->
+
+
+    <!--// Section Three; the main reason I like this format is the increase in white space -->
+    <section class="container section-three" id="spydevelopers">
+      <div class="row">
+        <div class="col-md-6 css-img-wrapper hidden-xs hidden-sm">
+          <div class="img-circle img-responsive img-developers"></div>
+        </div>
+        <div class="col-md-6">
+          <h2>Developers</h2>
+          <article>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+            </p>
+            <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+            </p>
+            <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!--//Close Section Three -->
+    <% @quotes.each do |quote| %>
+    <div> <%= quote[0] %> </div>  <p class="text-muted"><em> – <%= quote[1] %></em></p>
+    <% end %>

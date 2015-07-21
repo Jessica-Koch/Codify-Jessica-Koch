@@ -24,8 +24,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Bootstrap and Flexbox Cover</a>
+        <ul class="nav navbar-nav navbar-left">
+          <% if current_user %>
+          <li><%= link_to current_user.full_name, user_path(current_user) %></li>
+          <li><%= link_to 'Sign Out', logout_path %></li>
+          <% else %>
+          <li><%= link_to "Sign Up", signup_path %></li>
+          <li><%= link_to 'Sign In', login_path %></li>
+          <% end %>
+        </ul>
       </div>
+
+
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#spytop">Home</a></li>
@@ -37,10 +47,16 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li><%= link_to "About", about_path %></li>
-              <li><%= link_to "Terms", terms_path %></li>              
               <li><%= link_to "FAQ", faq_path %></li>
               <li><%= link_to "Users", users_path%></li>
-              <li><%= link_to "Projects", projects_path %></li>
+
+              <li>
+                <% if current_user %>
+                <%= link_to "Projects", projects_path %>
+                <% else %>
+                <%= link_to "Projects", root_path %>
+                <% end %>
+              </li>
             </ul>
           </li>
         </ul>
@@ -50,109 +66,20 @@
   <!-- Close Fixed Nav -->
 
 
-  <!-- Full Screen Landing Section -->
-  <section class="cover" id="spytop"> 
-    <div class="cover-inner">
-      <div class="flex-wrapper">
-        <div class="jumbotron">
-          <h1 class="animated fadeInDownBig">(In Development)</h1>
-          <p class="animated fadeInRightBig">This example showing how you can use Flexbox in areas or a Bootstrap Download to enhance your layout!</p>
-          <p class="animated fadeInLeftBig"><em>This is and will always be a working progress so be sure to check back for updates!</em></p>
-          <p>
-            <a class="btn btn-lg jumbotron-btn animated fadeInUpBig" role="button">Call Out Button &raquo;</a>
-          </p>
-        </div>
-      </div>
+  <%= yield %>
+
+  <!-- Footer -->
+  <footer>
+
+    <!-- Back to top link -->
+    <a href="#spytop" class="top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <!-- //Close Back to top link -->
+
+    <div class="container">
+      <h2>Footer</h2>
     </div>
-  </section>
-  <!-- //Close Full Screen Landing Section -->
+  </footer>
+  <!-- //Close Footer -->
 
-
-  <!-- Section One; as seen on many site 3 main option sections for content -->
-  <section class="container-fluid section-one">
-    <div class="row">
-      <div class="col-md-4 section-one-content" id="section-one-left">
-        <h1>What</h1>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
-        </p>
-        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
-        </p>
-      </div>
-
-      <div class="col-md-4 section-one-content" id="section-one-middle">
-        <h1>Why</h1>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
-        </p>
-        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
-        </p>
-      </div>
-
-      <div class="col-md-4 section-one-content" id="section-one-right">
-        <h1>How</h1>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
-        </p>
-        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
-        </p>
-      </div>  
-    </div>
-  </section>
-  <!-- //Close Section One -->  
-
-
-  <!-- Section Two; a style feature I really like is 2 cols, 1 for text and 1 for a related image -->
-  <section class="container section-two" id="spydesingers">
-    <div class="row">
-      <div class="col-md-6 to-match">
-        <h2>Designers</h2>
-        <article>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
-          </p>
-          <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
-          </p>
-          <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
-          </p>
-        </article>
-      </div>
-      <div class="col-md-6 css-img-wrapper hidden-xs hidden-sm">
-        <img class="img-responsive img-circle img-designers">
-      </div>
-    </section>
-    <!--//Close Section Two -->
-
-
-    <!--// Section Three; the main reason I like this format is the increase in white space -->
-    <section class="container section-three" id="spydevelopers">
-      <div class="row">
-        <div class="col-md-6 css-img-wrapper hidden-xs hidden-sm">
-          <div class="img-circle img-responsive img-developers"></div>
-        </div>
-        <div class="col-md-6">
-          <h2>Developers</h2>
-          <article>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
-            </p>
-            <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
-            </p>
-            <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-    <!--//Close Section Three -->
-
-    <!-- Footer -->
-    <footer>
-
-      <!-- Back to top link -->
-      <a href="#spytop" class="top"><span class="glyphicon glyphicon-chevron-up"></span></a>
-      <!-- //Close Back to top link -->
-
-      <div class="container">
-        <h2>Footer</h2>
-      </div>
-    </footer>
-    <!-- //Close Footer -->
-
-  </body>
-  </html>
+</body>
+</html>
