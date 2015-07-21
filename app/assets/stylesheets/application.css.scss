@@ -1,48 +1,82 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@font-face {
+  font-family: "Flaticon";
+  src: url("flaticon.eot");
+  src: url("flaticon.eot#iefix") format("embedded-opentype"),
+  url("flaticon.woff") format("woff"),
+  url("flaticon.ttf") format("truetype"),
+  url("flaticon.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+  font-size: 2em;
+  font-style: normal;
+  margin-left: 20px;
+  }.flaticon-github17:before {
+    content: "\e000";
+  }
+  .flaticon-github7:before {
+    content: "\e001";
+  }
+  .flaticon-linkedin12:before {
+    content: "\e002";
+  }
+  .flaticon-linkedin23:before {
+    content: "\e003";
+  }
+  .flaticon-social-network44:before {
+    content: "\e004";
+  }
+  .flaticon-twitter46:before {
+    content: "\e005";
+  }
 
-body {
-  background-image: url('closesky.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #464646;
-}
-.center{
-  color: #fff
-}
-.img-footer {
- max-width: 2em;
- max-height: 2em;
- margin-right: .5em;
-}
+  body {
+    background-image: url('darkskyline.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .center{
+    color: #fff
+  }
+  .img-footer {
+   max-width: 2em;
+   max-height: 2em;
+   margin-right: .5em;
+ }
 
-footer {
-  padding-bottom: 2em;
-}
-
-a{
+ a {
+  color: #fff;
   font: {
     weight: bold;
   }
   &:link{
     color: #fff;
   }
-  &:visited{
-    color: #ABABAB;
-  }
   &:hover{
-   text-shadow         : 0px 0px 0px transparent;
-   transition          : text-shadow 0.3s;
-   -webkit-transition  : text-shadow 0.3s;
-   -moz-transition     : text-shadow 0.3s;
-   -o-transition       : text-shadow 0.3s;
-   text-shadow        : 1px 0px 20px #ff0000;
- }
+    color: #fff;
+    text-shadow         : 0px 0px 0px transparent;
+    transition          : text-shadow 0.3s;
+    -webkit-transition  : text-shadow 0.3s;
+    -moz-transition     : text-shadow 0.3s;
+    -o-transition       : text-shadow 0.3s;
+    text-shadow        : 1px 0px 20px #ff0000;
+    text-decoration: none;
 
- &:active{
-  text-shadow        : 1px 0px 20px #fff;
+  }
+  &:active{
+    text-shadow        : 1px 0px 20px #fff;
+    color: #fff;
+  }
 }
+
+footer {
+  padding-bottom: 2em;
 }
