@@ -14,25 +14,24 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree 
+
 'use strict';
 
-$(window).resize(function(){
+$(window).resize(function() {
   //update stuff
 });
 
-//Change position/background/padding/add shadow
-//when scroll event happens
-
+//Change pos/background/padding/add shadow on nav when scroll event happens 
 $(function(){
   var navbar = $('.navbar');
   var navDropdown = $('.dropdown-menu');
-
+  
   $(window).scroll(function(){
     if($(window).scrollTop() <= 40){
       navbar.removeClass('navbar-scroll');
       navDropdown.removeClass('nav-dropdown-scroll');
       $('.top').hide();
-    }else {
+    } else {
       navbar.addClass('navbar-scroll');
       navDropdown.addClass('nav-dropdown-scroll');
       $('.top').show();
@@ -40,35 +39,37 @@ $(function(){
   });
   $('.navbar-toggle').click(function(){
     if($(window).scrollTop() <= 40){
-      navbar.addClass('navbar-scroll');
-    }
-  });
+     navbar.addClass('navbar-scroll');
+   }
+ });
 });
+
 
 //Close collapse nav when scroll spy page link is clicked
 $('.navbar-nav a[href*="#spy"]').click(function(){
   $('.navbar-collapse').collapse('hide');
   if($(window).scrollTop() <= 40){
-    $('.navbar').removeClass('navbar-scroll');
-  }
+   $('.navbar').removeClass('navbar-scroll');
+ }
 });
 
-//Get hieght of col next to image col and apply a fixed height
-//for flexbox to work correctly.
+
+//Get height of col next to img col and apply a fixed height for flexbox to work correctly.
 $(function(){
   var flexColHeight = $('.to-match').height();
   var flexCol = $('.css-img-wrapper');
-
-  flexCol.css('height', flexColHeight);
+  
+  flexCol.css('height', flexColHeight); 
 });
 
-//Smooth Scrolling for Internal Page Links
-$(function(){
-  $('a[href*=#spy]:not([href=#])').click(function(){
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')&& location.hostname== this.hostname) {
+
+//Smooth Scrolling For Internal Page Links
+$(function() {
+  $('a[href*=#spy]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length){
+      if (target.length) {
         $('html,body').animate({
           scrollTop: target.offset().top
         }, 1000);
@@ -77,6 +78,5 @@ $(function(){
     }
   });
 });
-
 
 

@@ -3,9 +3,9 @@
     <div class="cover-inner">
       <div class="flex-wrapper">
         <div class="jumbotron">
-          <h1 class="animated fadeInDownBig">(In Development)</h1>
-          <p class="animated fadeInRightBig">This example showing how you can use Flexbox in areas or a Bootstrap Download to enhance your layout!</p>
-          <p class="animated fadeInLeftBig"><em>This is and will always be a working progress so be sure to check back for updates!</em></p>
+          <h1 class="animated fadeInDownBig">RedUp</h1>
+          <p class="animated fadeInRightBig">Your life</p>
+          <p class="animated fadeInLeftBig"><em>Organized</em></p>
           <p>
             <a class="btn btn-lg jumbotron-btn animated fadeInUpBig" role="button">Call Out Button &raquo;</a>
           </p>
@@ -20,10 +20,10 @@
   <section class="container-fluid section-one">
     <div class="row">
       <div class="col-md-4 section-one-content" id="section-one-left">
-        <h1>What</h1>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
-        </p>
-        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+        <h1>Testimonials</h1>
+        <p> <% @quotes.each do |quote| %>
+          <div> <%= quote[0] %> </div>  <p class="text-muted"><em> – <%= quote[1] %></em></p>
+          <% end %>
         </p>
       </div>
 
@@ -88,6 +88,4 @@
       </div>
     </section>
     <!--//Close Section Three -->
-    <% @quotes.each do |quote| %>
-    <div> <%= quote[0] %> </div>  <p class="text-muted"><em> – <%= quote[1] %></em></p>
-    <% end %>
+    
